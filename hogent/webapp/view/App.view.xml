@@ -1,0 +1,71 @@
+<mvc:View controllerName="hogent.controller.App"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:tnt="sap.tnt"
+    xmlns="sap.m">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <l:VerticalLayout>
+                            <f:Card class="sapUiMediumMargin">
+                                <f:header>
+                                    <card:Header title="User info"/>
+                                </f:header>
+                                <f:content>
+                                    <VBox class="sapUiSmallMargin" justifyContent="SpaceBetween">
+                                        <Text id="userClientId" text="Clientid: {auth>/uaa/clientid}"/>
+                                        <Text id="userSubAccountId" text="Subaccountid: {auth>/uaa/subaccountid}"/>
+                                        <Text id="userTennantId" text="Tennantid: {auth>/uaa/tenantid}"/>
+                                        <HBox id="userApiHealth">
+                                            <Text text="API Health:"/>
+                                            <tnt:InfoLabel id="lblApiHealth" text="NOT AVAILABLE" colorScheme="2"/>
+                                        </HBox>
+                                        <Button text="change" press="openAuthDialog"/>
+                                    </VBox>
+                                </f:content>
+                            </f:Card>
+                            <u:FileUploader id="fileUploaderFS" name="fileUploaderFS" uploadUrl="uploadFile" uploadComplete="onUploadComplete" change="onFileChange" fileType="txt" multiple="false" placeholder="Upload"/>
+                            <VBox alignContent="SpaceBetween">
+                                <Text text="Model"/>
+                                <ComboBox id="selectModel" items="{models>/items}">
+                                    <core:Item key="{models>modelName}" text="{models>modelName}"/>
+                                </ComboBox>
+                            </VBox>
+                            <Button text="Upload File" press="handleUploadPress"/>
+
+                            <Table headerText="Extracted entities" width="auto" class="sapUiResponsiveMargin"
+                            items="{result>/items}">
+                                <columns>
+                                    <Column>
+                                        <Text text="Name"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Value"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Confidence"/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{result>name}"/>
+                                            <Text text="{result>value}"/>
+                                            <Text text="{result>confidence}"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </l:VerticalLayout>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

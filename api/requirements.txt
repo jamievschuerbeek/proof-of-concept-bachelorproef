@@ -1,0 +1,3 @@
+sap-business-entity-recognition-client-library
+Flask
+flask-cors

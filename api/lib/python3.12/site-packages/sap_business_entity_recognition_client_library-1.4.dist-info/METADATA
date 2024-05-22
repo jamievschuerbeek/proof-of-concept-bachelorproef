@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sap-business-entity-recognition-client-library
+Version: 1.4
+Summary: Exposes easy consumable methods via a client library, to access and use the API offerings of the AI BUS Service - Business Entity Recognition.
+Home-page: https://github.com/SAP/business-entity-recognition-client-library
+Download-URL: https://github.com/SAP/business-entity-recognition-client-library/archive/refs/heads/main.zip
+Author: Gokul Mohanarangan
+Author-email: gokumohan@gmail.com
+Maintainer: Gokul Mohanarangan
+Maintainer-email: gokumohan@gmail.com
+License: apache-2.0
+Keywords: business,entity,recognition,machine learning,SAP,client,library
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: requests (~=2.31)
+

@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog id="dlgUploadAuth" title="Please upload your key.json" afterClose="onAuthClose">
+        <u:FileUploader id="authUploader" name="authUploader" uploadUrl="uploadFile" uploadComplete="onAuthUploadComplete" change="onAuthFileChanged" multiple="false" placeholder="Upload key.json" typeMissmatch="typeMissmatch" fileSizeExceed="fileSizeExceed" />
+    </Dialog>
+</core:FragmentDefinition>
