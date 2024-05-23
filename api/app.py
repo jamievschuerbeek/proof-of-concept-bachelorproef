@@ -49,7 +49,6 @@ def inference():
     
     if ber_service is None:
         return "No valid credentials provided", 400
-    
 
     inference_job = ber_service.post_inference_job(text,model_name, model_version)
     inference_jobid = inference_job.json()['data']['id']

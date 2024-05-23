@@ -84,8 +84,6 @@ sap.ui.define(
 
         this.addUserInfo();
         this.fetchModels();
-
-        console.log(this.getView().getModel("auth").getData());
       },
 
       //Open auth dialog
@@ -104,9 +102,6 @@ sap.ui.define(
 
       //get all available models
       fetchModels: function () {
-        console.log("fetching models");
-        console.log(this.getView().getModel("auth").getData());
-
         fetch(url + "/models", {
           method: "POST",
           headers: {
@@ -118,7 +113,6 @@ sap.ui.define(
             return response.json();
           })
           .then((data) => {
-            console.log(data);
             this.getView().setModel(new JSONModel(data), "models");
           });
       },
